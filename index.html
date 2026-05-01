@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ä¼è­°å®¤ç©ºãç¶æ³ | æ ªå¼ä¼ç¤¾SHO-SAN</title>
+  <title>会議室空き状況 | 株式会社SHO-SAN</title>
   <style>
     :root {
       --red: #ef4444; --red-light: #fee2e2; --red-border: #fca5a5;
@@ -19,7 +19,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-    /* ââ Header ââ */
+    /* ── Header ── */
     header { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
     .header-inner { max-width: 960px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
     .header-branding .company { font-size: 11px; color: var(--muted); font-weight: 500; display: block; }
@@ -44,12 +44,12 @@
     .btn-refresh.spinning svg { transform: rotate(360deg); }
     .last-updated { font-size: 11px; color: var(--muted); white-space: nowrap; }
 
-    /* ââ Tab bar ââ */
+    /* ── Tab bar ── */
     .tab-bar { max-width: 960px; margin: 0 auto; padding: 0 16px; display: flex; border-top: 1px solid var(--border); }
     .tab-btn { padding: 9px 18px; border: none; background: none; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
     .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
 
-    /* ââ Sync bar ââ */
+    /* ── Sync bar ── */
     .sync-bar { max-width: 960px; margin: 0 auto 0; padding: 6px 16px; display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); background: var(--bg); }
     .sync-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
     .sync-dot.ok      { background: var(--green); }
@@ -58,10 +58,10 @@
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
     .btn-resync { font-size: 11px; color: var(--blue); background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline; }
 
-    /* ââ Main ââ */
+    /* ── Main ── */
     main { max-width: 960px; margin: 0 auto; padding: 16px 16px 40px; }
 
-    /* ââ Summary chips ââ */
+    /* ── Summary chips ── */
     .summary { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
     .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
     .chip.blue { background: var(--blue-light); color: var(--blue); border: 1.5px solid var(--blue-border); }
@@ -70,16 +70,16 @@
     .chip.blue .dot { background: var(--blue); }
     .chip.red  .dot { background: var(--red); }
 
-    /* ââ Floor label ââ */
+    /* ── Floor label ── */
     .floor-section { margin-bottom: 20px; }
     .floor-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; padding-left: 2px; }
 
-    /* ââ Room card grid ââ */
+    /* ── Room card grid ── */
     .rooms-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
     @media (max-width: 720px) { .rooms-grid { grid-template-columns: repeat(2,1fr); gap: 10px; } }
     @media (max-width: 480px) { .rooms-grid { grid-template-columns: 1fr; gap: 8px; } }
 
-    /* ââ Room card ââ */
+    /* ── Room card ── */
     .room-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); border: 2px solid transparent; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s, border-color 0.2s; }
     .room-card:hover { box-shadow: var(--shadow-lg); }
     .room-card.available { border-color: var(--blue-border); }
@@ -114,7 +114,7 @@
     .btn-calendar:hover { background: #dcfce7; }
     .btn-calendar:visited { color: var(--blue); }
 
-    /* ââ Date Search ââ */
+    /* ── Date Search ── */
     .date-nav { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
     .date-nav-btn { width: 34px; height: 34px; border: 1.5px solid var(--border); background: white; border-radius: 8px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; color: var(--muted); transition: all 0.15s; }
     .date-nav-btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
@@ -123,7 +123,7 @@
     .btn-today { padding: 6px 12px; border: 1.5px solid var(--border); background: white; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--muted); transition: all 0.15s; }
     .btn-today:hover, .btn-today.active-today { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
 
-    /* ââ Search card ââ */
+    /* ── Search card ── */
     .search-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1.5px solid var(--border); margin-bottom: 10px; overflow: hidden; }
     .search-card-header { padding: 12px 14px 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
     .search-card-name { font-size: 14px; font-weight: 700; }
@@ -169,13 +169,13 @@
     .btn-delete-res:hover { background: var(--red-light); color: var(--red); }
     .search-loading { text-align: center; padding: 32px; font-size: 13px; color: var(--muted); }
 
-    /* ââ Availability timeline ââ */
-    .avail-bar-connected { background: #dcfce7; } /* ç· = ç©ºã */
-    .avail-bar-unknown   { background: #f1f5f9; } /* ã°ã¬ã¼ = ä¸æ */
+    /* ── Availability timeline ── */
+    .avail-bar-connected { background: #dcfce7; } /* 緑 = 空き */
+    .avail-bar-unknown   { background: #f1f5f9; } /* グレー = 不明 */
     .avail-block-busy { position: absolute; top: 0; bottom: 0; background: #94a3b8; border-radius: 0; display: flex; align-items: center; overflow: hidden; }
     .avail-block-label { font-size: 9px; color: white; font-weight: 600; padding: 0 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    /* ââ Free slots list ââ */
+    /* ── Free slots list ── */
     .free-slot-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); gap: 8px; }
     .free-slot-item:last-child { border-bottom: none; }
     .free-slot-left { display: flex; align-items: center; gap: 8px; }
@@ -187,7 +187,7 @@
     .free-all-day { font-size: 12px; color: var(--blue); font-weight: 600; padding: 2px 0 6px; }
     .no-cal-notice { font-size: 12px; color: var(--muted); padding: 8px 0; }
 
-    /* ââ Modal (shared) ââ */
+    /* ── Modal (shared) ── */
     .modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.45); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 16px; backdrop-filter: blur(2px); }
     .modal { background: white; border-radius: 16px; width: 100%; max-width: 420px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); animation: modal-in 0.18s ease; max-height: 90vh; display: flex; flex-direction: column; }
     .modal-wide { max-width: 560px; }
@@ -245,7 +245,7 @@
       .room-cal-row { grid-template-columns: 80px 1fr; }
     }
 
-    /* ââ Cal-required popup ââ */
+    /* ── Cal-required popup ── */
     .cal-popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; }
     .cal-popup-overlay.hidden { display: none; }
     .cal-popup { background: #fff; border-radius: 16px; padding: 28px 24px 22px; max-width: 360px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.18); text-align: center; }
@@ -261,36 +261,36 @@
 <!-- Calendar-required popup -->
 <div id="calPopupOverlay" class="cal-popup-overlay hidden">
   <div class="cal-popup">
-    <div class="cal-popup-icon">ð</div>
-    <h2>Googleã«ã¬ã³ãã¼é£æºãå¿è¦ã§ã</h2>
-    <p>å³ä¸ã®ãGoogleã§ãµã¤ã³ã¤ã³ããã¿ã³ãæ¼ãã¦é£æºãã¦ããå©ç¨ãéå§ãã¦ãã ããã</p>
-    <button class="cal-popup-close" onclick="document.getElementById('calPopupOverlay').classList.add('hidden')">ãããã¾ãã</button>
+    <div class="cal-popup-icon">📅</div>
+    <h2>Googleカレンダー連携が必要です</h2>
+    <p>右上の「Googleでサインイン」ボタンを押して連携してから利用を開始してください。</p>
+    <button class="cal-popup-close" onclick="document.getElementById('calPopupOverlay').classList.add('hidden')">わかりました</button>
   </div>
 </div>
 
 <header>
   <div class="header-inner">
     <div class="header-branding">
-      <span class="company">æ ªå¼ä¼ç¤¾SHO-SAN</span>
-      <h1>ð¢ ä¼è­°å®¤ç©ºãç¶æ³</h1>
+      <span class="company">株式会社SHO-SAN</span>
+      <h1>🏢 会議室空き状況</h1>
     </div>
     <div class="header-right">
       <span class="last-updated" id="lastUpdated"></span>
       <div id="authStatus"></div>
-      <button class="btn-settings" onclick="openDiag()" title="æ¥ç¶è¨ºæ­">ð</button>
-      <button class="btn-settings" onclick="openSettings()" title="è¨­å®">âï¸</button>
+      <button class="btn-settings" onclick="openDiag()" title="接続診断">🔍</button>
+      <button class="btn-settings" onclick="openSettings()" title="設定">⚙️</button>
       <button class="btn-refresh" id="refreshBtn" onclick="doRefresh()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
           <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
         </svg>
-        æ´æ°
+        更新
       </button>
     </div>
   </div>
   <div class="tab-bar">
-    <button class="tab-btn active" id="tab-realtime" onclick="setTab('realtime')">ð¡ ãªã¢ã«ã¿ã¤ã </button>
-    <button class="tab-btn" id="tab-search" onclick="setTab('search')">ð æ¥ç¨æ¤ç´¢</button>
+    <button class="tab-btn active" id="tab-realtime" onclick="setTab('realtime')">📡 リアルタイム</button>
+    <button class="tab-btn" id="tab-search" onclick="setTab('search')">📅 日程検索</button>
   </div>
 </header>
 
@@ -300,7 +300,7 @@
     <div id="syncBarWrap" style="display:none" class="sync-bar">
       <span class="sync-dot" id="syncDot"></span>
       <span id="syncText"></span>
-      <button class="btn-resync" id="syncBtn" onclick="triggerSync()" style="display:none">ä»ããåæ</button>
+      <button class="btn-resync" id="syncBtn" onclick="triggerSync()" style="display:none">今すぐ同期</button>
     </div>
     <div class="summary" id="summary"></div>
     <div id="roomsContainer"></div>
@@ -309,10 +309,10 @@
   <!-- Date search view -->
   <div id="view-search" style="display:none">
     <div class="date-nav">
-      <button class="date-nav-btn" onclick="changeDate(-1)">â¹</button>
+      <button class="date-nav-btn" onclick="changeDate(-1)">‹</button>
       <input type="date" id="datePicker" onchange="renderSearch()">
-      <button class="btn-today" id="btnToday" onclick="goToday()">ä»æ¥</button>
-      <button class="date-nav-btn" onclick="changeDate(1)">âº</button>
+      <button class="btn-today" id="btnToday" onclick="goToday()">今日</button>
+      <button class="date-nav-btn" onclick="changeDate(1)">›</button>
     </div>
     <div id="searchContainer"></div>
   </div>
@@ -322,13 +322,13 @@
 <div class="modal-overlay" id="diagOverlay" style="display:none" onclick="if(event.target===this)closeDiag()">
   <div class="modal modal-wide" onclick="event.stopPropagation()">
     <div class="modal-header">
-      <h2>ð æ¥ç¶è¨ºæ­</h2>
-      <button class="modal-close" onclick="closeDiag()">â</button>
+      <h2>🔍 接続診断</h2>
+      <button class="modal-close" onclick="closeDiag()">✕</button>
     </div>
     <div class="modal-body" id="diagBody" style="gap:8px;font-size:13px"></div>
     <div class="modal-footer">
-      <button class="btn-secondary" onclick="closeDiag()">éãã</button>
-      <button class="btn-primary-blue" onclick="runDiag()">åè¨ºæ­</button>
+      <button class="btn-secondary" onclick="closeDiag()">閉じる</button>
+      <button class="btn-primary-blue" onclick="runDiag()">再診断</button>
     </div>
   </div>
 </div>
@@ -337,13 +337,13 @@
 <div class="modal-overlay" id="settingsOverlay" style="display:none" onclick="if(event.target===this)closeSettings()">
   <div class="modal modal-wide" onclick="event.stopPropagation()">
     <div class="modal-header">
-      <h2>âï¸ è¨­å®ã»Googleã«ã¬ã³ãã¼é£æº</h2>
-      <button class="modal-close" onclick="closeSettings()">â</button>
+      <h2>⚙️ 設定・Googleカレンダー連携</h2>
+      <button class="modal-close" onclick="closeSettings()">✕</button>
     </div>
     <div class="modal-body" id="settingsBody"></div>
     <div class="modal-footer">
-      <button class="btn-secondary" onclick="closeSettings()">éãã</button>
-      <button class="btn-primary-blue" onclick="saveAndConnect()">ä¿å­ãã¦æ¥ç¶</button>
+      <button class="btn-secondary" onclick="closeSettings()">閉じる</button>
+      <button class="btn-primary-blue" onclick="saveAndConnect()">保存して接続</button>
     </div>
   </div>
 </div>
@@ -352,8 +352,8 @@
 <div class="modal-overlay" id="reservationOverlay" style="display:none" onclick="if(event.target===this)closeModal()">
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-header">
-      <h2>ã¡ã¢äºç´ãè¿½å </h2>
-      <button class="modal-close" onclick="closeModal()">â</button>
+      <h2>メモ予約を追加</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-info-row">
@@ -361,48 +361,48 @@
         <div class="modal-info-chip" id="modalDateChip"></div>
       </div>
       <div class="form-group">
-        <label class="form-label">ä»¶åï¼ä»»æï¼</label>
-        <input class="form-input" type="text" id="modalTitle" placeholder="ä¾ï¼å®ä¾ä¼è­°" maxlength="60">
+        <label class="form-label">件名（任意）</label>
+        <input class="form-input" type="text" id="modalTitle" placeholder="例：定例会議" maxlength="60">
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">éå§</label>
+          <label class="form-label">開始</label>
           <select class="form-select" id="modalStart" onchange="syncEndTime()"></select>
         </div>
         <div class="form-group">
-          <label class="form-label">çµäº</label>
+          <label class="form-label">終了</label>
           <select class="form-select" id="modalEnd"></select>
         </div>
       </div>
       <div class="form-error" id="modalError"></div>
     </div>
     <div class="modal-footer">
-      <button class="btn-secondary" onclick="closeModal()">ã­ã£ã³ã»ã«</button>
-      <button class="btn-primary" onclick="submitReservation()">ä¿å­</button>
+      <button class="btn-secondary" onclick="closeModal()">キャンセル</button>
+      <button class="btn-primary" onclick="submitReservation()">保存</button>
     </div>
   </div>
 </div>
 
-<footer>ãã¼ã¿ã¯ãã®ãã©ã¦ã¶ã®ã­ã¼ã«ã«ã¹ãã¬ã¼ã¸ã«ä¿å­ããã¾ããã«ã¬ã³ãã¼é£æºæã¯2åãã¨ã«èªååæããã¾ãã</footer>
+<footer>データはこのブラウザのローカルストレージに保存されます。カレンダー連携時は2分ごとに自動同期されます。</footer>
 
 <script>
-/* ââ CONSTANTS ââ */
+/* ══ CONSTANTS ══ */
 const ROOMS = [
-  { id:'nausicaa',    name:'Nausicaa',        capacity:6, location:'2é å¿æ¥å®¤',       floor:'2F' },
-  { id:'asbel',       name:'Asbel',            capacity:4, location:'2é ä¼è­°å®¤',       floor:'2F' },
-  { id:'booth_front', name:'åäººãã¼ã¹ï¼æåï¼', capacity:1, location:'2é æå',         floor:'2F' },
-  { id:'booth_back',  name:'åäººãã¼ã¹ï¼å¥¥ï¼',   capacity:1, location:'2é å¥¥',           floor:'2F' },
-  { id:'laputa',      name:'Laputa',            capacity:8, location:'3é ä¼è­°å®¤',       floor:'3F' },
-  { id:'sheeta',      name:'Sheeta',            capacity:1, location:'3é åå®¤Aï¼æåï¼', floor:'3F' },
-  { id:'pazu',        name:'Pazu',              capacity:1, location:'3é åå®¤Bï¼å¥¥ï¼',  floor:'3F' },
+  { id:'nausicaa',    name:'Nausicaa',        capacity:6, location:'2階 応接室',       floor:'2F' },
+  { id:'asbel',       name:'Asbel',            capacity:4, location:'2階 会議室',       floor:'2F' },
+  { id:'booth_front', name:'個人ブース（手前）', capacity:1, location:'2階 手前',         floor:'2F' },
+  { id:'booth_back',  name:'個人ブース（奥）',   capacity:1, location:'2階 奥',           floor:'2F' },
+  { id:'laputa',      name:'Laputa',            capacity:8, location:'3階 会議室',       floor:'3F' },
+  { id:'sheeta',      name:'Sheeta',            capacity:1, location:'3階 個室A（手前）', floor:'3F' },
+  { id:'pazu',        name:'Pazu',              capacity:1, location:'3階 個室B（奥）',  floor:'3F' },
 ];
 const STATUS_KEY   = 'shosan_room_status_v1';
 const RES_KEY      = 'shosan_reservations_v1';
 const SETTINGS_KEY = 'shosan_settings_v2';
-const TL_START = 480, TL_END = 1260, TL_RANGE = 780; // 8:00â21:00 in minutes
+const TL_START = 480, TL_END = 1260, TL_RANGE = 780; // 8:00–21:00 in minutes
 const SYNC_INTERVAL = 2 * 60 * 1000; // 2 min
 
-/* ââ STATE ââ */
+/* ══ STATE ══ */
 let roomStatus = {};
 let googleToken = null;
 let tokenExpiry = 0;
@@ -413,7 +413,7 @@ let lastSync    = null;
 let currentTab  = 'realtime';
 let _modalRoomId = null, _modalDate = null;
 
-/* ââ STORAGE ââ */
+/* ══ STORAGE ══ */
 const ls = {
   get: (k, d=null) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set: (k, v)      => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
@@ -426,31 +426,31 @@ function getSettings()   { return ls.get(SETTINGS_KEY, {}); }
 function saveSettings(s) { ls.set(SETTINGS_KEY, s); }
 function getStatus(id)   { return roomStatus[id] || { inUse:false, since:null }; }
 
-/* ââ UTILS ââ */
+/* ══ UTILS ══ */
 const toMin  = hhmm => { const [h,m]=hhmm.split(':').map(Number); return h*60+m; };
 const toHHMM = min  => `${String(Math.floor(min/60)).padStart(2,'0')}:${String(min%60).padStart(2,'0')}`;
 const todayStr = () => { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
 function formatDateJa(s) {
-  const [y,m,d]=s.split('-'); const day=['æ¥','æ','ç«','æ°´','æ¨','é','å'][new Date(s+'T00:00:00').getDay()];
-  return `${y}å¹´${parseInt(m)}æ${parseInt(d)}æ¥ï¼${day}ï¼`;
+  const [y,m,d]=s.split('-'); const day=['日','月','火','水','木','金','土'][new Date(s+'T00:00:00').getDay()];
+  return `${y}年${parseInt(m)}月${parseInt(d)}日（${day}）`;
 }
 function elapsed(since) {
   if (!since) return '';
   const m=Math.floor((Date.now()-new Date(since).getTime())/60000);
-  if (m<1) return 'ãã£ãä»ãã'; if (m<60) return `${m}ååãã`;
-  const h=Math.floor(m/60),r=m%60; return r?`${h}æé${r}ååãã`:`${h}æéåãã`;
+  if (m<1) return 'たった今から'; if (m<60) return `${m}分前から`;
+  const h=Math.floor(m/60),r=m%60; return r?`${h}時間${r}分前から`:`${h}時間前から`;
 }
 function gcalUrl(room, dateStr, start='09:00', end='10:00') {
   const [y,mo,d]=(dateStr||todayStr()).split('-');
   const [sh,sm]=start.split(':'), [eh,em]=end.split(':');
   const fmt=(Y,M,D,h,mi)=>`${Y}${String(M).padStart(2,'0')}${String(D).padStart(2,'0')}T${String(h).padStart(2,'0')}${String(mi).padStart(2,'0')}00`;
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`ã${room.name}ãä¼è­°`)}&location=${encodeURIComponent(`${room.location}ï¼æå¤§${room.capacity}åï¼`)}&dates=${fmt(y,mo,d,sh,sm)}/${fmt(y,mo,d,eh,em)}`;
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`【${room.name}】会議`)}&location=${encodeURIComponent(`${room.location}（最大${room.capacity}名）`)}&dates=${fmt(y,mo,d,sh,sm)}/${fmt(y,mo,d,eh,em)}`;
 }
 const ALL_SLOTS = (() => { const s=[]; for(let t=TL_START;t<=TL_END;t+=30) s.push(toHHMM(t)); return s; })();
 const isTokenValid = () => googleToken && Date.now() < tokenExpiry;
 const isCalMode = (roomId) => isTokenValid() && !!(getSettings().calendars?.[roomId]);
 
-/* ââ GOOGLE AUTH (GIS token client) ââ */
+/* ══ GOOGLE AUTH (GIS token client) ══ */
 function loadGisScript(clientId) {
   const old = document.getElementById('gis-script');
   if (old) old.remove();
@@ -466,16 +466,16 @@ function loadGisScript(clientId) {
         scope: 'https://www.googleapis.com/auth/calendar.readonly',
         callback: handleToken,
       });
-      // åæåå®äº â ãã¿ã³ãæå¹å
+      // 初期化完了 → ボタンを有効化
       renderAuthUI(false);
     } catch(e) {
       console.error('[GIS] initTokenClient failed:', e);
-      showAuthError(`åæåã¨ã©ã¼: ${e.message || e}`);
+      showAuthError(`初期化エラー: ${e.message || e}`);
     }
   };
   s.onerror = () => {
-    console.error('[GIS] ã¹ã¯ãªããèª­ã¿è¾¼ã¿å¤±æ');
-    showAuthError('Googleèªè¨¼ã¹ã¯ãªããã®èª­ã¿è¾¼ã¿ã«å¤±æãã¾ããããããã¯ã¼ã¯æ¥ç¶ãç¢ºèªãã¦ãã ããã');
+    console.error('[GIS] スクリプト読み込み失敗');
+    showAuthError('Google認証スクリプトの読み込みに失敗しました。ネットワーク接続を確認してください。');
   };
   document.head.appendChild(s);
 }
@@ -496,33 +496,33 @@ function handleToken(resp) {
 
 function handleGisError(err) {
   console.error('[GIS] error_callback:', err);
-  if (err.type === 'popup_closed') return; // ã¦ã¼ã¶ã¼ãéããã ã
+  if (err.type === 'popup_closed') return; // ユーザーが閉じただけ
   if (err.type === 'popup_failed_to_open') {
-    showAuthError('â ï¸ ãããã¢ããããã­ãã¯ããã¦ãã¾ããã¢ãã¬ã¹ãã¼ã®ããããã¢ããããã­ãã¯ããã¾ããããã¯ãªãã¯ãã¦è¨±å¯ãã¦ãã ããã');
+    showAuthError('⚠️ ポップアップがブロックされています。アドレスバーの「ポップアップがブロックされました」をクリックして許可してください。');
     return;
   }
-  showAuthError(`èªè¨¼ã¨ã©ã¼ (${err.type || 'unknown'}): ã³ã³ã½ã¼ã«(F12)ãç¢ºèªãã¦ãã ããã`);
+  showAuthError(`認証エラー (${err.type || 'unknown'}): コンソール(F12)を確認してください。`);
 }
 
 function showAuthError(msg) {
   document.getElementById('authStatus').innerHTML =
     `<span style="font-size:11px;color:var(--red);max-width:280px;line-height:1.4;display:inline-block">${msg}</span>
-     <button class="btn-disconnect" onclick="openSettings()" style="margin-left:4px">åè¨­å®</button>`;
+     <button class="btn-disconnect" onclick="openSettings()" style="margin-left:4px">再設定</button>`;
 }
 
 function signIn() {
   if (location.protocol === 'file:') {
-    alert('â ï¸ file:// ã§ã¯ Google ãµã¤ã³ã¤ã³ãä½¿ãã¾ããã\nhttp://localhost:8000 ã§ã¢ã¯ã»ã¹ãã¦ãã ããã');
+    alert('⚠️ file:// では Google サインインが使えません。\nhttp://localhost:8000 でアクセスしてください。');
     return;
   }
   if (!tokenClient) {
-    showAuthError('æºåä¸­ã§ããæ°ç§å¾ã«åè©¦è¡ãã¦ãã ããã');
+    showAuthError('準備中です。数秒後に再試行してください。');
     return;
   }
   try {
     tokenClient.requestAccessToken({ prompt: 'select_account' });
   } catch(e) {
-    showAuthError(`ãµã¤ã³ã¤ã³ã¨ã©ã¼: ${e.message || String(e)}`);
+    showAuthError(`サインインエラー: ${e.message || String(e)}`);
   }
 }
 
@@ -540,21 +540,21 @@ function signOut() {
 function renderAuthUI(connected) {
   const el = document.getElementById('authStatus');
   if (connected) {
-    el.innerHTML = `<span class="auth-connected-label">â ã«ã¬ã³ãã¼é£æºä¸­</span>
-      <button class="btn-disconnect" onclick="signOut()">åæ­</button>`;
+    el.innerHTML = `<span class="auth-connected-label">✓ カレンダー連携中</span>
+      <button class="btn-disconnect" onclick="signOut()">切断</button>`;
   } else {
     const { clientId } = getSettings();
     if (clientId) {
       el.innerHTML = `<button class="btn-signin" onclick="signIn()">
         <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#fff" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#fff" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#fff" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#fff" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        Googleã§ãµã¤ã³ã¤ã³</button>`;
+        Googleでサインイン</button>`;
     } else {
-      el.innerHTML = `<button class="btn-signin" style="background:#64748b" onclick="openSettings()">âï¸ ã«ã¬ã³ãã¼é£æºãè¨­å®</button>`;
+      el.innerHTML = `<button class="btn-signin" style="background:#64748b" onclick="openSettings()">⚙️ カレンダー連携を設定</button>`;
     }
   }
 }
 
-/* ââ CALENDAR API ââ */
+/* ══ CALENDAR API ══ */
 async function calFetch(calId, params) {
   const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calId)}/events?${new URLSearchParams(params)}`;
   const res = await fetch(url, { headers: { Authorization: `Bearer ${googleToken}` } });
@@ -595,7 +595,7 @@ async function fetchEventsForDate(calId, date) {
   });
   return (data.items || []).map(e => ({
     id: e.start.dateTime || e.start.date,
-    title: e.summary || 'ï¼ä»¶åãªãï¼',
+    title: e.summary || '（件名なし）',
     startTime: e.start.dateTime ? e.start.dateTime.slice(11,16) : '00:00',
     endTime:   e.end.dateTime   ? e.end.dateTime.slice(11,16)   : '23:59',
     organizer: e.organizer?.displayName || e.organizer?.email || '',
@@ -603,7 +603,7 @@ async function fetchEventsForDate(calId, date) {
   }));
 }
 
-/* ââ SYNC ââ */
+/* ══ SYNC ══ */
 async function triggerSync() {
   if (isSyncing || !isTokenValid()) return;
   const cals = getSettings().calendars || {};
@@ -661,27 +661,27 @@ function setSyncBar(state) {
   if (!hasCals) { wrap.style.display = 'none'; return; }
   wrap.style.display = '';
   dot.className = `sync-dot ${state}`;
-  if (state === 'syncing') { txt.textContent = 'åæä¸­â¦'; btn.style.display = 'none'; }
+  if (state === 'syncing') { txt.textContent = '同期中…'; btn.style.display = 'none'; }
   else if (state === 'ok') {
     const t = lastSync ? [lastSync.getHours(), lastSync.getMinutes()].map(n=>String(n).padStart(2,'0')).join(':') : '--';
-    txt.textContent = `ã«ã¬ã³ãã¼ã¨åææ¸ã¿ï¼${t}ï¼`;
+    txt.textContent = `カレンダーと同期済み（${t}）`;
     btn.style.display = '';
   } else {
-    txt.textContent = 'ä¸é¨ã®åæã«å¤±æãã¾ãã';
+    txt.textContent = '一部の同期に失敗しました';
     btn.style.display = '';
   }
 }
 
-/* ââ REAL-TIME VIEW ââ */
+/* ══ REAL-TIME VIEW ══ */
 function cardHTML(room) {
   const s = getStatus(room.id);
   const calConnected = isCalMode(room.id);
   const hasCalId = !!(getSettings().calendars?.[room.id]);
   const cls = s.inUse ? 'in-use' : 'available';
-  const label = s.inUse ? 'ä½¿ç¨ä¸­' : 'ç©ºã';
-  const cap = room.capacity === 1 ? '1å' : `æå¤§${room.capacity}å`;
+  const label = s.inUse ? '使用中' : '空き';
+  const cap = room.capacity === 1 ? '1名' : `最大${room.capacity}名`;
   const endLabel = s.inUse
-    ? (s.eventEndTime ? `${s.eventEndTime} ã¾ã§ä½¿ç¨ä¸­` : 'ä½¿ç¨ä¸­')
+    ? (s.eventEndTime ? `${s.eventEndTime} まで使用中` : '使用中')
     : null;
   const _slot = nextHalfHourSlot();
   const bookUrl = gcalBookUrl(room, _slot.date, _slot.start, _slot.end);
@@ -694,20 +694,20 @@ function cardHTML(room) {
         <div class="status-pill"><span class="status-dot"></span>${label}</div>
       </div>
       <div class="room-meta">
-        <div class="meta-row">ð ${room.location}</div>
-        <div class="meta-row">ð¥ ${cap}</div>
-        ${endLabel ? `<div class="meta-row"><span class="in-use-since">ð ${endLabel}</span></div>` : ''}
+        <div class="meta-row">📍 ${room.location}</div>
+        <div class="meta-row">👥 ${cap}</div>
+        ${endLabel ? `<div class="meta-row"><span class="in-use-since">🕐 ${endLabel}</span></div>` : ''}
         ${calConnected && s.eventTitle ? `<div class="meta-row"><span class="event-title-inline">"${s.eventTitle}"</span></div>` : ''}
-        ${calConnected ? `<div class="meta-row"><span class="cal-badge-small">ð ã«ã¬ã³ãã¼é£æºä¸­</span></div>`
-          : hasCalId ? `<div class="meta-row"><span class="no-cal-badge">â ï¸ ãµã¤ã³ã¤ã³ãã¦ãã ãã</span></div>` : ''}
+        ${calConnected ? `<div class="meta-row"><span class="cal-badge-small">📅 カレンダー連携中</span></div>`
+          : hasCalId ? `<div class="meta-row"><span class="no-cal-badge">⚠️ サインインしてください</span></div>` : ''}
       </div>
     </div>
     <div class="card-actions">
       ${calConnected ? '' : s.inUse
-        ? `<button class="btn btn-mark-available" onclick="setManualStatus('${room.id}',false)">â ç©ºãã«ãã</button>`
-        : `<button class="btn btn-mark-in-use"    onclick="setManualStatus('${room.id}',true)">ð´ ä½¿ç¨ä¸­ã«ãã</button>`
+        ? `<button class="btn btn-mark-available" onclick="setManualStatus('${room.id}',false)">✓ 空きにする</button>`
+        : `<button class="btn btn-mark-in-use"    onclick="setManualStatus('${room.id}',true)">🔴 使用中にする</button>`
       }
-      ${!s.inUse ? `<a class="btn btn-calendar" href="${bookUrl}" target="_blank" rel="noopener noreferrer">ð Googleã«ã¬ã³ãã¼ã§äºç´</a>` : ''}
+      ${!s.inUse ? `<a class="btn btn-calendar" href="${bookUrl}" target="_blank" rel="noopener noreferrer">📅 Googleカレンダーで予約</a>` : ''}
     </div>
   </div>`;
 }
@@ -720,13 +720,13 @@ function setManualStatus(id, inUse) {
 function render() {
   loadStatus();
   const floors = [...new Set(ROOMS.map(r => r.floor))];
-  const floorNames = { '2F':'2é', '3F':'3é' };
+  const floorNames = { '2F':'2階', '3F':'3階' };
   let avail=0, inUse=0;
   ROOMS.forEach(r => getStatus(r.id).inUse ? inUse++ : avail++);
 
   document.getElementById('summary').innerHTML = `
-    <div class="chip blue"><span class="dot"></span>ç©ºã <strong>${avail}</strong> å®¤</div>
-    <div class="chip red"><span class="dot"></span>ä½¿ç¨ä¸­ <strong>${inUse}</strong> å®¤</div>`;
+    <div class="chip blue"><span class="dot"></span>空き <strong>${avail}</strong> 室</div>
+    <div class="chip red"><span class="dot"></span>使用中 <strong>${inUse}</strong> 室</div>`;
 
   document.getElementById('roomsContainer').innerHTML = floors.map(fl => `
     <div class="floor-section">
@@ -736,7 +736,7 @@ function render() {
 
   const d = new Date();
   const t = [d.getHours(),d.getMinutes(),d.getSeconds()].map(n=>String(n).padStart(2,'0')).join(':');
-  document.getElementById('lastUpdated').textContent = `æ´æ°: ${t}`;
+  document.getElementById('lastUpdated').textContent = `更新: ${t}`;
   setSyncBar(isSyncing ? 'syncing' : lastSync ? 'ok' : 'ok');
 }
 
@@ -749,8 +749,8 @@ function doRefresh() {
   if (currentTab === 'search') renderSearch();
 }
 
-/* ââ DATE SEARCH VIEW ââ */
-/* ç©ºãæéãè¨ç® */
+/* ══ DATE SEARCH VIEW ══ */
+/* 空き時間を計算 */
 function calcFreeSlots(events) {
   const busy = events
     .map(e => ({ s: Math.max(toMin(e.startTime), TL_START), e: Math.min(toMin(e.endTime), TL_END) }))
@@ -769,10 +769,10 @@ function calcFreeSlots(events) {
 function durationStr(start, end) {
   const m = toMin(end) - toMin(start);
   const h = Math.floor(m / 60), r = m % 60;
-  return h > 0 && r > 0 ? `${h}æé${r}å` : h > 0 ? `${h}æé` : `${r}å`;
+  return h > 0 && r > 0 ? `${h}時間${r}分` : h > 0 ? `${h}時間` : `${r}分`;
 }
 
-/* ã«ã¬ã³ãã¼ã§è©²å½ä¼è­°å®¤ãéãURL */
+/* カレンダーで該当会議室を開くURL */
 function gcalRoomViewUrl(room, date) {
   const [y, mo, d] = date.split('-');
   const calId = getSettings().calendars?.[room.id];
@@ -797,14 +797,14 @@ function nextHalfHourSlot() {
   };
 }
 
-/* ç©ºãæéå¸¯ãGoogleã«ã¬ã³ãã¼ã§äºç´ããURL */
+/* 空き時間帯をGoogleカレンダーで予約するURL */
 function gcalBookUrl(room, date, startTime, endTime) {
   const [y, mo, d] = date.split('-');
   const [sh, sm] = startTime.split(':'), [eh, em] = endTime.split(':');
   const fmt = (Y, M, D, h, mi) => `${Y}${String(M).padStart(2,'0')}${String(D).padStart(2,'0')}T${String(h).padStart(2,'0')}${String(mi).padStart(2,'0')}00`;
   const calId = getSettings().calendars?.[room.id];
   let url = `https://calendar.google.com/calendar/render?action=TEMPLATE`
-    + `&text=${encodeURIComponent(`ã${room.name}ãä¼è­°`)}`
+    + `&text=${encodeURIComponent(`【${room.name}】会議`)}`
     + `&location=${encodeURIComponent(room.location)}`
     + `&dates=${fmt(y,mo,d,sh,sm)}/${fmt(y,mo,d,eh,em)}`;
   if (calId) url += `&add=${encodeURIComponent(calId)}`;
@@ -814,7 +814,7 @@ function gcalBookUrl(room, date, startTime, endTime) {
 async function renderSearch() {
   const date = document.getElementById('datePicker').value || todayStr();
   document.getElementById('btnToday').classList.toggle('active-today', date === todayStr());
-  document.getElementById('searchContainer').innerHTML = '<div class="search-loading">èª­ã¿è¾¼ã¿ä¸­â¦</div>';
+  document.getElementById('searchContainer').innerHTML = '<div class="search-loading">読み込み中…</div>';
 
   const calEvents = {};
   if (isTokenValid()) {
@@ -829,7 +829,7 @@ async function renderSearch() {
   document.getElementById('searchContainer').innerHTML = ROOMS.map(room => {
     const events  = calEvents[room.id] || [];
     const calConn = isCalMode(room.id);
-    const cap     = room.capacity === 1 ? '1å' : `æå¤§${room.capacity}å`;
+    const cap     = room.capacity === 1 ? '1名' : `最大${room.capacity}名`;
     const viewUrl = gcalRoomViewUrl(room, date);
 
     return `<div class="search-card">
@@ -837,12 +837,12 @@ async function renderSearch() {
         <div>
           <div class="search-card-name">${room.name}</div>
           <div class="search-card-meta">
-            <span class="tag">ð ${room.location}</span>
-            <span class="tag">ð¥ ${cap}</span>
-            ${calConn ? '<span class="tag tag-cal">ð ã«ã¬ã³ãã¼é£æº</span>' : ''}
+            <span class="tag">📍 ${room.location}</span>
+            <span class="tag">👥 ${cap}</span>
+            ${calConn ? '<span class="tag tag-cal">📅 カレンダー連携</span>' : ''}
           </div>
         </div>
-        <a class="btn-gcal" href="${viewUrl}" target="_blank" rel="noopener noreferrer">ð ã«ã¬ã³ãã¼ãéã</a>
+        <a class="btn-gcal" href="${viewUrl}" target="_blank" rel="noopener noreferrer">📅 カレンダーを開く</a>
       </div>
       ${renderAvailabilityTimeline(date, events, calConn)}
       ${renderFreeSlots(room, date, events, calConn)}
@@ -857,7 +857,7 @@ function renderAvailabilityTimeline(date, events, calConn) {
   const hours = [], gridLines = [];
   for (let h = 8; h <= 21; h += 2) {
     const pct = ((h*60 - TL_START) / TL_RANGE * 100).toFixed(2);
-    hours.push(`<div class="timeline-hour" style="left:${pct}%">${h}æ</div>`);
+    hours.push(`<div class="timeline-hour" style="left:${pct}%">${h}時</div>`);
     gridLines.push(`<div class="timeline-grid-line" style="left:${pct}%"></div>`);
   }
 
@@ -867,7 +867,7 @@ function renderAvailabilityTimeline(date, events, calConn) {
     if (f <= s) return '';
     const left  = ((s - TL_START) / TL_RANGE * 100).toFixed(2);
     const width = ((f - s) / TL_RANGE * 100).toFixed(2);
-    const lbl   = e.title ? `${e.startTime}ã${e.endTime} ${e.title}` : `${e.startTime}ã${e.endTime}`;
+    const lbl   = e.title ? `${e.startTime}〜${e.endTime} ${e.title}` : `${e.startTime}〜${e.endTime}`;
     return `<div class="avail-block-busy" style="left:${left}%;width:${width}%" title="${lbl}">
       <span class="avail-block-label">${lbl}</span></div>`;
   }).join('') : '';
@@ -880,27 +880,27 @@ function renderAvailabilityTimeline(date, events, calConn) {
     <div class="timeline-bar ${calConn ? 'avail-bar-connected' : 'avail-bar-unknown'}">${gridLines.join('')}${busyBlocks}${nowLine}</div>
   </div>
   <div class="timeline-legend">
-    ${calConn ? '<div class="legend-item"><span class="legend-dot" style="background:#86efac"></span>ç©ºã</div><div class="legend-item"><span class="legend-dot" style="background:#94a3b8"></span>ä½¿ç¨ä¸­</div>' : ''}
+    ${calConn ? '<div class="legend-item"><span class="legend-dot" style="background:#86efac"></span>空き</div><div class="legend-item"><span class="legend-dot" style="background:#94a3b8"></span>使用中</div>' : ''}
   </div>`;
 }
 
 function renderFreeSlots(room, date, events, calConn) {
   if (!calConn) {
-    return `<div class="res-list"><p class="no-cal-notice">ð Googleã«ã¬ã³ãã¼ã¨é£æºããã¨ç©ºãæéãè¡¨ç¤ºããã¾ã</p></div>`;
+    return `<div class="res-list"><p class="no-cal-notice">📅 Googleカレンダーと連携すると空き時間が表示されます</p></div>`;
   }
   const free = calcFreeSlots(events);
   if (!free.length) {
-    return `<div class="res-list"><p class="res-empty">ð´ ãã®æ¥ã¯çµæ¥ä½¿ç¨äºå®ã§ã</p></div>`;
+    return `<div class="res-list"><p class="res-empty">🔴 この日は終日使用予定です</p></div>`;
   }
   return `<div class="res-list">
-    ${events.length === 0 ? '<p class="free-all-day">çµæ¥ç©ºãã§ã</p>' : ''}
+    ${events.length === 0 ? '<p class="free-all-day">終日空きです</p>' : ''}
     ${free.map(slot => `
       <div class="free-slot-item">
         <div class="free-slot-left">
-          <span class="free-slot-time">${slot.startTime}ã${slot.endTime}</span>
+          <span class="free-slot-time">${slot.startTime}〜${slot.endTime}</span>
           <span class="free-slot-duration">${durationStr(slot.startTime, slot.endTime)}</span>
         </div>
-        <a class="btn-book-slot" href="${gcalBookUrl(room, date, slot.startTime, slot.endTime)}" target="_blank" rel="noopener noreferrer">ãã®æéã«äºç´ â</a>
+        <a class="btn-book-slot" href="${gcalBookUrl(room, date, slot.startTime, slot.endTime)}" target="_blank" rel="noopener noreferrer">この時間に予約 →</a>
       </div>`).join('')}
   </div>`;
 }
@@ -913,7 +913,7 @@ function changeDate(delta) {
 }
 function goToday() { document.getElementById('datePicker').value = todayStr(); renderSearch(); }
 
-/* ââ DIAGNOSTIC ââ */
+/* ══ DIAGNOSTIC ══ */
 function openDiag() { runDiag(); document.getElementById('diagOverlay').style.display = 'flex'; }
 function closeDiag() { document.getElementById('diagOverlay').style.display = 'none'; }
 
@@ -924,71 +924,71 @@ function runDiag() {
   // 1. Protocol
   const isFile = location.protocol === 'file:';
   checks.push({
-    label: 'ã¢ã¯ã»ã¹æ¹æ³',
+    label: 'アクセス方法',
     value: location.href,
     ok: !isFile,
     note: isFile
-      ? 'â file:// ã§éãã¦ãã¾ããGoogle ãµã¤ã³ã¤ã³ã¯ä½¿ãã¾ããã\nã¿ã¼ããã«ã§ â python3 -m http.server 8000\nãã®å¾ http://localhost:8000 ã§éãã¦ãã ããã'
-      : 'â æ­£å¸¸ãªURLã§éãã¦ãã¾ãã',
+      ? '❌ file:// で開いています。Google サインインは使えません。\nターミナルで → python3 -m http.server 8000\nその後 http://localhost:8000 で開いてください。'
+      : '✅ 正常なURLで開いています。',
   });
 
   // 2. Client ID
   const hasClientId = !!(s.clientId);
   checks.push({
-    label: 'ã¯ã©ã¤ã¢ã³ãID',
-    value: s.clientId ? s.clientId.slice(0, 8) + 'â¦' + s.clientId.slice(-20) : 'æªè¨­å®',
+    label: 'クライアントID',
+    value: s.clientId ? s.clientId.slice(0, 8) + '…' + s.clientId.slice(-20) : '未設定',
     ok: hasClientId,
-    note: hasClientId ? 'â è¨­å®ããã¦ãã¾ãã' : 'â âï¸ ããè¨­å®ãã¦ãã ããã',
+    note: hasClientId ? '✅ 設定されています。' : '❌ ⚙️ から設定してください。',
   });
 
   // 3. GIS script
   const gisEl = document.getElementById('gis-script');
   const gisLoaded = !!(gisEl && window.google?.accounts?.oauth2);
   checks.push({
-    label: 'Googleèªè¨¼ã¹ã¯ãªãã',
-    value: gisLoaded ? 'èª­ã¿è¾¼ã¿æ¸ã¿' : (gisEl ? 'èª­ã¿è¾¼ã¿ä¸­ or å¤±æ' : 'æªèª­ã¿è¾¼ã¿'),
+    label: 'Google認証スクリプト',
+    value: gisLoaded ? '読み込み済み' : (gisEl ? '読み込み中 or 失敗' : '未読み込み'),
     ok: gisLoaded,
     note: gisLoaded
-      ? 'â æ­£å¸¸ã«èª­ã¿è¾¼ã¾ãã¦ãã¾ãã'
-      : 'â ãããã¯ã¼ã¯æ¥ç¶ãç¢ºèªãã¦ãã ãããã¹ã¯ãªããã®èª­ã¿è¾¼ã¿ã«å¤±æãã¦ãã¾ãã',
+      ? '✅ 正常に読み込まれています。'
+      : '❌ ネットワーク接続を確認してください。スクリプトの読み込みに失敗しています。',
   });
 
   // 4. Token client
   checks.push({
-    label: 'ãµã¤ã³ã¤ã³æºå',
-    value: tokenClient ? 'æºåå®äº' : 'æªåæå',
+    label: 'サインイン準備',
+    value: tokenClient ? '準備完了' : '未初期化',
     ok: !!tokenClient,
     note: tokenClient
-      ? 'â ãµã¤ã³ã¤ã³ãã¿ã³ãæ¼ãã¨ãããã¢ãããéãã¾ãã'
-      : 'â ã¯ã©ã¤ã¢ã³ãIDãæªè¨­å®ããã¹ã¯ãªããã®èª­ã¿è¾¼ã¿ã«å¤±æãã¦ãã¾ãã',
+      ? '✅ サインインボタンを押すとポップアップが開きます。'
+      : '❌ クライアントIDが未設定か、スクリプトの読み込みに失敗しています。',
   });
 
   // 5. Registered origin guidance
   checks.push({
-    label: 'ç»é²ãã¹ãJavaScriptãªãªã¸ã³',
+    label: '登録すべきJavaScriptオリジン',
     value: location.origin,
     ok: null,
-    note: `Google Cloud Console ã®ãOAuth ã¯ã©ã¤ã¢ã³ãIDãâãæ¿èªæ¸ã¿ã®JavaScriptãªãªã¸ã³ãã«\nä¸è¨ã®å¤ãç»é²ããã¦ãããç¢ºèªãã¦ãã ããã`,
+    note: `Google Cloud Console の「OAuth クライアントID」→「承認済みのJavaScriptオリジン」に\n上記の値が登録されているか確認してください。`,
   });
 
   // 6. Calendar IDs
   const cals = s.calendars || {};
   const configured = ROOMS.filter(r => cals[r.id]);
   checks.push({
-    label: 'ã«ã¬ã³ãã¼IDè¨­å®æ¸ã¿',
-    value: `${configured.length} / ${ROOMS.length} å®¤`,
+    label: 'カレンダーID設定済み',
+    value: `${configured.length} / ${ROOMS.length} 室`,
     ok: configured.length > 0,
     note: configured.length > 0
-      ? `â ${configured.map(r => r.name).join('ã')} ãè¨­å®æ¸ã¿`
-      : 'â ï¸ ã«ã¬ã³ãã¼IDã1ä»¶ãè¨­å®ããã¦ãã¾ãããâï¸ ããè¨­å®ãã¦ãã ããã',
+      ? `✅ ${configured.map(r => r.name).join('、')} が設定済み`
+      : '⚠️ カレンダーIDが1件も設定されていません。⚙️ から設定してください。',
   });
 
   // 7. Auth state
   checks.push({
-    label: 'èªè¨¼ç¶æ',
-    value: isTokenValid() ? 'â ãµã¤ã³ã¤ã³æ¸ã¿ã»æå¹' : googleToken ? 'â ï¸ ãã¼ã¯ã³æéåã' : 'æªãµã¤ã³ã¤ã³',
+    label: '認証状態',
+    value: isTokenValid() ? '✅ サインイン済み・有効' : googleToken ? '⚠️ トークン期限切れ' : '未サインイン',
     ok: isTokenValid(),
-    note: isTokenValid() ? 'ã«ã¬ã³ãã¼ã¨ã®åæãå¯è½ã§ãã' : 'ãGoogleã§ãµã¤ã³ã¤ã³ããã¿ã³ãæ¼ãã¦ãã ããã',
+    note: isTokenValid() ? 'カレンダーとの同期が可能です。' : '「Googleでサインイン」ボタンを押してください。',
   });
 
   document.getElementById('diagBody').innerHTML = checks.map(c => `
@@ -1001,23 +1001,23 @@ function runDiag() {
     </div>`).join('');
 }
 
-/* ââ SETTINGS MODAL ââ */
+/* ══ SETTINGS MODAL ══ */
 function openSettings() {
   const s = getSettings();
   const cals = s.calendars || {};
   const isFile = location.protocol === 'file:';
 
   document.getElementById('settingsBody').innerHTML = `
-    ${isFile ? `<div class="settings-warning">â ï¸ <code>file://</code> ã§éããã¦ãã¾ããGoogleãµã¤ã³ã¤ã³ã«ã¯ <code>http://</code> ã¾ãã¯ <code>https://</code> ã§ã¢ã¯ã»ã¹ãã¦ãã ããã</div>` : ''}
+    ${isFile ? `<div class="settings-warning">⚠️ <code>file://</code> で開かれています。Googleサインインには <code>http://</code> または <code>https://</code> でアクセスしてください。</div>` : ''}
 
     <div class="settings-section">
-      <div class="settings-section-title">ð OAuth ã¯ã©ã¤ã¢ã³ãID</div>
+      <div class="settings-section-title">🔑 OAuth クライアントID</div>
       <div class="settings-step-note"><ol>
-        <li><a href="https://console.cloud.google.com/" target="_blank" rel="noopener">Google Cloud Console</a> ã§ãã­ã¸ã§ã¯ããä½æ</li>
-        <li>ãAPIã¨ãµã¼ãã¹ãâãã©ã¤ãã©ãªãã§ <strong>Google Calendar API</strong> ãæå¹å</li>
-        <li>ãèªè¨¼æå ±ãâãOAuth 2.0 ã¯ã©ã¤ã¢ã³ãIDããä½æï¼ç¨®é¡: ã¦ã§ãã¢ããªã±ã¼ã·ã§ã³ï¼</li>
-        <li>ãæ¿èªæ¸ã¿ã®JavaScriptãªãªã¸ã³ãã« <code>${location.origin}</code> ãè¿½å </li>
-        <li>ä½æãããã¯ã©ã¤ã¢ã³ãIDãä»¥ä¸ã«å¥å</li>
+        <li><a href="https://console.cloud.google.com/" target="_blank" rel="noopener">Google Cloud Console</a> でプロジェクトを作成</li>
+        <li>「APIとサービス」→「ライブラリ」で <strong>Google Calendar API</strong> を有効化</li>
+        <li>「認証情報」→「OAuth 2.0 クライアントID」を作成（種類: ウェブアプリケーション）</li>
+        <li>「承認済みのJavaScriptオリジン」に <code>${location.origin}</code> を追加</li>
+        <li>作成されたクライアントIDを以下に入力</li>
       </ol></div>
       <input class="settings-input" type="text" id="settingClientId" value="${s.clientId||''}" placeholder="xxxxxxxx.apps.googleusercontent.com">
     </div>
@@ -1025,12 +1025,12 @@ function openSettings() {
     <hr class="settings-divider">
 
     <div class="settings-section">
-      <div class="settings-section-title">ð ä¼è­°å®¤ã«ã¬ã³ãã¼ID</div>
-      <p class="settings-desc">åä¼è­°å®¤ã®Googleã«ã¬ã³ãã¼IDãå¥åãã¦ãã ãããGoogle Workspaceã®ãªã½ã¼ã¹ã«ã¬ã³ãã¼ã®å ´åã¯ç®¡çã³ã³ã½ã¼ã«ã§ç¢ºèªã§ãã¾ããï¼çç¥ããä¼è­°å®¤ã¯æåã¢ã¼ãã«ãªãã¾ãï¼</p>
+      <div class="settings-section-title">📅 会議室カレンダーID</div>
+      <p class="settings-desc">各会議室のGoogleカレンダーIDを入力してください。Google Workspaceのリソースカレンダーの場合は管理コンソールで確認できます。（省略した会議室は手動モードになります）</p>
       <div class="room-cal-list">
         ${ROOMS.map(room => `<div class="room-cal-row">
           <span class="room-cal-name">${room.name}</span>
-          <input class="settings-input room-cal-input" type="text" id="cal_${room.id}" value="${cals[room.id]||''}" placeholder="â¦@resource.calendar.google.com">
+          <input class="settings-input room-cal-input" type="text" id="cal_${room.id}" value="${cals[room.id]||''}" placeholder="…@resource.calendar.google.com">
         </div>`).join('')}
       </div>
     </div>
@@ -1038,11 +1038,11 @@ function openSettings() {
     <hr class="settings-divider">
 
     <div class="settings-section">
-      <div class="settings-section-title">ð æ¥ç¶ç¶æ</div>
+      <div class="settings-section-title">🔗 接続状態</div>
       ${isTokenValid()
-        ? `<div class="auth-status-big connected">â Googleã«ã¬ã³ãã¼ã«æ¥ç¶æ¸ã¿</div>
-           <button class="btn-danger" onclick="signOut();closeSettings()">åæ­ãã</button>`
-        : `<div class="auth-status-big disconnected">æªæ¥ç¶</div>`}
+        ? `<div class="auth-status-big connected">✅ Googleカレンダーに接続済み</div>
+           <button class="btn-danger" onclick="signOut();closeSettings()">切断する</button>`
+        : `<div class="auth-status-big disconnected">未接続</div>`}
     </div>`;
 
   document.getElementById('settingsOverlay').style.display = 'flex';
@@ -1052,16 +1052,16 @@ function closeSettings() { document.getElementById('settingsOverlay').style.disp
 
 function saveAndConnect() {
   const clientId = document.getElementById('settingClientId').value.trim();
-  if (!clientId) { alert('ã¯ã©ã¤ã¢ã³ãIDãå¥åãã¦ãã ããã'); return; }
+  if (!clientId) { alert('クライアントIDを入力してください。'); return; }
   const calendars = {};
   ROOMS.forEach(r => { const v = document.getElementById(`cal_${r.id}`)?.value.trim(); if (v) calendars[r.id] = v; });
   saveSettings({ clientId, calendars });
   closeSettings();
-  renderAuthUI(false); // ãã¿ã³ãããè¡¨ç¤º
+  renderAuthUI(false); // ボタンをすぐ表示
   loadGisScript(clientId);
 }
 
-/* ââ RESERVATION MEMO MODAL ââ */
+/* ══ RESERVATION MEMO MODAL ══ */
 function populateSlots() {
   const s = document.getElementById('modalStart'), e = document.getElementById('modalEnd');
   s.innerHTML = ALL_SLOTS.slice(0,-1).map(t=>`<option value="${t}">${t}</option>`).join('');
@@ -1078,8 +1078,8 @@ function syncEndTime() {
 function openModal(roomId, date) {
   _modalRoomId = roomId; _modalDate = date;
   const room = ROOMS.find(r=>r.id===roomId);
-  document.getElementById('modalRoomChip').textContent = `ð¢ ${room.name}`;
-  document.getElementById('modalDateChip').textContent = `ð ${formatDateJa(date)}`;
+  document.getElementById('modalRoomChip').textContent = `🏢 ${room.name}`;
+  document.getElementById('modalDateChip').textContent = `📅 ${formatDateJa(date)}`;
   document.getElementById('modalTitle').value = '';
   document.getElementById('modalError').textContent = '';
   populateSlots();
@@ -1094,7 +1094,7 @@ function closeModal() { document.getElementById('reservationOverlay').style.disp
 function submitReservation() {
   const start=document.getElementById('modalStart').value, end=document.getElementById('modalEnd').value;
   const title=document.getElementById('modalTitle').value.trim();
-  if (toMin(end)<=toMin(start)) { document.getElementById('modalError').textContent='çµäºæéã¯éå§ããå¾ã«ãã¦ãã ããã'; return; }
+  if (toMin(end)<=toMin(start)) { document.getElementById('modalError').textContent='終了時間は開始より後にしてください。'; return; }
   document.getElementById('modalError').textContent='';
   const list = loadRes();
   list.push({ id:`${Date.now()}_${Math.random().toString(36).slice(2,6)}`, roomId:_modalRoomId, date:_modalDate, startTime:start, endTime:end, title });
@@ -1102,7 +1102,7 @@ function submitReservation() {
   closeModal(); renderSearch();
 }
 
-/* ââ TAB MANAGEMENT ââ */
+/* ══ TAB MANAGEMENT ══ */
 function setTab(name) {
   currentTab = name;
   document.getElementById('view-realtime').style.display = name==='realtime' ? '' : 'none';
@@ -1115,7 +1115,7 @@ function setTab(name) {
   }
 }
 
-/* ââ KEYBOARD ââ */
+/* ══ KEYBOARD ══ */
 document.addEventListener('keydown', e => {
   if (e.key==='Escape') { closeModal(); closeSettings(); }
   if (currentTab==='search' && !['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName)) {
@@ -1124,7 +1124,7 @@ document.addEventListener('keydown', e => {
   }
 });
 
-/* ââ INIT ââ */
+/* ══ INIT ══ */
 loadStatus();
 
 // Restore saved token
